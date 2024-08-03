@@ -3,3 +3,5 @@ venv
 .vscodium
 *.csv
 data
+.env
+.pytest_cache
