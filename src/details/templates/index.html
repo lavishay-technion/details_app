@@ -46,16 +46,19 @@
                             </div>
                         </div>
                     </form>
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% endif %}
 
                     <!-- Combo Box for Contacts -->
                     <div class="mt-4">
-                        <h2>Delete Contact</h2>
+                        <h2>Contact List</h2>
                         <select id="contactList" class="form-control">
                             {% for contact in contacts %}
-                                <option value="{{ contact.id }}">[{{contact.id}}] {{ contact.name }} - {{ contact.email }}</option>
+                                <option value="{{ contact.id }}">[{{ contact.id }}] {{ contact.name }} - {{ contact.email }}</option>
                             {% endfor %}
                         </select>
-                        <button onclick="deleteSelectedContact()" class="btn btn-danger mt-2">Delete</button>
+                        <button onclick="deleteSelectedContact()" class="btn btn-danger mt-2">Delete Contact</button>
                     </div>
                 </div>
             </div>
