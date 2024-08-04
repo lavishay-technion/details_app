@@ -79,37 +79,3 @@ def test_delete_contact_not_gefunden(in_memory_db):
     with app.test_client() as client:
         response = client.delete(f"/contacts/99999")
     assert response.status_code == 404, f"Expected status code 404 (Not Found), got {response.status_code}"
-
-# @pytest.fixture
-# def in_memory_db():
-#     """Fixture to use in-memory SQLite database for tests."""
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
-#     with app.app_context():
-#         db.create_all()  # Create tables for testing
-#     yield
-#     with app.app_context():
-#         db.drop_all()
-
-# # Your test cases (assuming they're in a file named test_app.py)
-
-# def test_create_contact(in_memory_db):
-#     """Test that a new contact can be created successfully."""
-#     name = "Test Name"
-#     email = "test@example.com"
-
-#     with app.test_client() as client:
-#         response = client.post('/', data=dict(name=name, email=email))
-#         # Assert the expected response code (e.g., redirect for successful creation)
-
-# def test_invalid_email(in_memory_db):
-#     """Test that contact creation fails with an invalid email."""
-#     name = "Test Name"
-#     email = "invalid_email"
-
-#     with app.test_client() as client:
-#         response = client.post('/', data=dict(name=name, email=email))
-#         # Assert the expected response code (e.g., error for invalid email)
-
-
-# export TEST_DB=True
-# pytest
